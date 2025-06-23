@@ -11,6 +11,7 @@ public class PersonService
     {
         _personRepository = personRepository;
     }
+    
     public async Task<List<PersonDto>> GetAllPersonsAsync()
     {
         var personList = await _personRepository.GetAllAsync();
@@ -42,18 +43,19 @@ public class PersonService
         return personDto;
 
     }
+
     public async Task CreatePersonAsync(CreatePersonDto dto)
     {
         if (dto == null)
             throw new ArgumentNullException(nameof(dto), "Person data cannot be null");
 
-        if (string.IsNullOrWhiteSpace(dto.Name))
+        else if (string.IsNullOrWhiteSpace(dto.Name))
             throw new ArgumentException("Person name cannot be null or empty", nameof(dto.Name));
 
-        if (string.IsNullOrWhiteSpace(dto.Surname))
+        else if (string.IsNullOrWhiteSpace(dto.Surname))
             throw new ArgumentException("Person surname cannot be null or empty", nameof(dto.Surname));
 
-        if (string.IsNullOrWhiteSpace(dto.Mail))
+        else if (string.IsNullOrWhiteSpace(dto.Mail))
             throw new ArgumentException("Person mail cannot be null or empty", nameof(dto.Mail));
 
 
@@ -72,10 +74,13 @@ public class PersonService
     {
         if (dto == null || string.IsNullOrEmpty(dto.Id))
             throw new ArgumentNullException(nameof(dto), "Person data cannot be null");
+
         else if (string.IsNullOrEmpty(dto.Surname))
             throw new ArgumentNullException(nameof(dto), "Person surname cannot be null");
+
         else if (string.IsNullOrEmpty(dto.Name))
             throw new ArgumentNullException(nameof(dto), "Person name cannot be null");
+
         else if (string.IsNullOrEmpty(dto.Mail))
             throw new ArgumentNullException(nameof(dto), "Person mail cannot be null");
 
