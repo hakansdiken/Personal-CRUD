@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using PersonalProject;
+using PersonProject;
 using PersonProject.Data;
 using PersonProject.Repositories;
 

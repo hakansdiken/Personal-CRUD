@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.container-table {
+  width: 300px;
+  min-width: 300px;
+}
+.container-form {
+
+}

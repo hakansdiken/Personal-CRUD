@@ -1,6 +1,6 @@
 using PersonProject.Dtos;
 using Microsoft.AspNetCore.Mvc;
-using PersonalProject;
+using PersonProject;
 using PersonProject.Models;
 
 namespace PersonProject.Controllers

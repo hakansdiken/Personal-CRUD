@@ -2,7 +2,7 @@
 using PersonProject.Models;
 using PersonProject.Repositories;
 
-namespace PersonalProject;
+namespace PersonProject;
 
 public class PersonService
 {

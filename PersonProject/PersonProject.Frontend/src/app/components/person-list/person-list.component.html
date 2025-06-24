@@ -2,8 +2,8 @@
 
 <table mat-table [dataSource]="persons" class="mat-elevation-z8">
 
-<!-- name kolonu (ng-container kolon yapısı)-->
-  <ng-container matColumnDef="name"> 
+  <!-- name kolonu (ng-container kolon yapısı)-->
+  <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Ad </th>
     <td mat-cell *matCellDef="let person"> {{ person.name }} </td>
   </ng-container>
@@ -14,11 +14,18 @@
     <td mat-cell *matCellDef="let person"> {{ person.surname }} </td>
   </ng-container>
 
-    <!-- mail kolonu -->
+  <!-- mail kolonu -->
   <ng-container matColumnDef="mail">
     <th mat-header-cell *matHeaderCellDef> E-mail </th>
     <td mat-cell *matCellDef="let person"> {{ person.mail }} </td>
   </ng-container>
+
+<ng-container matColumnDef="actions">
+  <th mat-header-cell *matHeaderCellDef> İşlemler </th>
+  <td mat-cell *matCellDef="let person">
+    <button mat-button color="warn" (click)="deletePerson(person.id)">Sil</button>
+  </td>
+</ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
