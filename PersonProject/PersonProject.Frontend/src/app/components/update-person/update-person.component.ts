@@ -36,7 +36,7 @@ import { MatInputModule } from '@angular/material/input';
 export class UpdatePersonComponent implements OnInit, OnChanges {
   @Input() person!: Person;
   @Output() cancel = new EventEmitter<void>();
-  @Output() updatedPerson = new EventEmitter<void>();
+  @Output() personUpdated = new EventEmitter<void>();
 
   personForm!: FormGroup;
 
@@ -75,7 +75,7 @@ export class UpdatePersonComponent implements OnInit, OnChanges {
         .updatePerson(this.person.id, this.personForm.value)
         .subscribe(
           () => {
-            this.updatedPerson.emit();
+            this.personUpdated.emit();
           },
           (error) => {
             console.error('Güncelleme hatası:', error);
