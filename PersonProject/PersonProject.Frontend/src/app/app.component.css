@@ -2,14 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 40px;
+  gap: 80px;
   margin-top: 40px;
 }
 
 .container-table {
   width: 300px;
   min-width: 300px;
-}
-.container-form {
-
 }

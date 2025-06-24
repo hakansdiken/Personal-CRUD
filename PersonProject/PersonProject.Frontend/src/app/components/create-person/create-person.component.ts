@@ -37,6 +37,7 @@ export class CreatePersonComponent {
   }
   @Output() personCreated = new EventEmitter<void>();
   onSubmit() {
+
     if (this.personForm.valid) {
       this.personService.createPerson(this.personForm.value).subscribe(() => {
         console.log('Kişi başarıyla eklendi');
@@ -45,6 +46,7 @@ export class CreatePersonComponent {
         this.personForm.reset(); //formu sıfırla
       });
     } else {
+      this.personForm.markAllAsTouched();
       console.log('Form geçerli değil');
     }
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Person, PersonService } from '../../services/person.service';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
@@ -7,11 +7,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-person-list',
   standalone: true,
-  imports: [
-    CommonModule,
-    MatTableModule,
-    MatButtonModule
-  ],
+  imports: [CommonModule, MatTableModule, MatButtonModule],
   templateUrl: './person-list.component.html',
   styleUrls: ['./person-list.component.css'],
 })
@@ -33,7 +29,7 @@ export class PersonListComponent implements OnInit {
       },
       error: (err) => {
         console.error('Kişiler listelenemedi:', err);
-      }
+      },
     });
   }
 
@@ -46,7 +42,11 @@ export class PersonListComponent implements OnInit {
       },
       error: (err) => {
         console.error('Silme başarısız:', err);
-      }
+      },
     });
+  }
+  @Output() edit = new EventEmitter<Person>();
+  onEdit(person: Person) {
+    this.edit.emit(person);
   }
 }

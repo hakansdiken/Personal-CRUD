@@ -22,7 +22,7 @@ namespace PersonProject.Controllers
 
             return Ok(persons);
         }
-        
+
         [HttpGet("{id}")]
         public async Task<ActionResult<Person>> GetById(string id)
         {
@@ -36,12 +36,13 @@ namespace PersonProject.Controllers
         {
             await _personService.CreatePersonAsync(dto);
 
-            return Ok(dto);;
+            return Ok(dto); ;
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update([FromBody] UpdatePersonDto dto)
+        public async Task<IActionResult> Update(string id, [FromBody] UpdatePersonDto dto)
         {
+            dto.Id = id;
             await _personService.UpdatePersonAsync(dto);
 
             return NoContent();
@@ -51,7 +52,7 @@ namespace PersonProject.Controllers
         public async Task<IActionResult> Delete(string id)
         {
             await _personService.DeletePersonAsync(id);
-            
+
             return NoContent();
         }
     }

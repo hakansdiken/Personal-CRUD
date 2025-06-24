@@ -1,8 +1,22 @@
 <div class="container">
   <div class="container-form">
-    <app-create-person (personCreated)="personList.loadPersons()"></app-create-person> <!-- form submit oldugunda personCreatedEmit tetiklenir-->
+    <app-create-person
+      *ngIf="!isEditMode"
+      (personCreated)="onPersonChanged()">
+    </app-create-person>
+
+    <app-update-person
+      *ngIf="isEditMode"
+      [person]="selectedPerson"
+      (cancel)="onCancelEdit()"
+      (updated)="onPersonChanged()">
+    </app-update-person>
   </div>
+
   <div class="container-table">
-    <app-person-list #personList></app-person-list> <!-- #personList ile referance veririz, böylece loadPersons() metodunu çağırabiliriz -->
+    <app-person-list
+      #personList
+      (edit)="onEditPerson($event)">
+    </app-person-list>
   </div>
 </div>

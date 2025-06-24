@@ -1,7 +1,6 @@
-<div class="create-person-container">
-  <h2 class="create-text">Personel Ekle</h2>
+<div class="update-person-container">
+  <h2 class="update-text">Personel Güncelle</h2>
   <form [formGroup]="personForm" (ngSubmit)="onSubmit()">
-
     <mat-form-field appearance="fill" class="full-width">
       <mat-label>Ad</mat-label>
       <input matInput formControlName="name" required />
@@ -22,15 +21,17 @@
       <mat-label>Email</mat-label>
       <input matInput formControlName="mail" required />
       <mat-error *ngIf="personForm.get('mail')?.hasError('required') && personForm.get('mail')?.touched">
-        Email alanı zorunludur.
+        E-mail alanı zorunludur.
       </mat-error>
-      <mat-error *ngIf="personForm.get('mail')?.hasError('email') && personForm.get('mail')?.touched">
-        Geçerli bir mail adresi girin.
+      <mat-error *ngIf="personForm.get('mail')?.hasError('email')">
+        Geçerli bir e-mail adresi giriniz.
       </mat-error>
     </mat-form-field>
 
-    <button type="submit" mat-raised-button color="primary" [disabled]="personForm.invalid">
-      Ekle
-    </button>
+    <div class="button-group">
+      <button type="submit" mat-raised-button color="primary" [disabled]="personForm.invalid">Güncelle</button>
+      <button type="button" mat-raised-button color="warn" (click)="onCancel()">İptal</button>
+    </div>
   </form>
 </div>
+

@@ -1,3 +1,8 @@
+.person-list-container {
+  display: block;
+  flex-direction: column;
+}
+
 table {
   width: 100%;
   margin-top: 20px;
@@ -8,6 +13,20 @@ h2 {
 }
 
 .mat-elevation-z8 {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5
-  );
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+td,
+th {
+  text-align: center;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.list-text {
+  text-align: center;
 }
